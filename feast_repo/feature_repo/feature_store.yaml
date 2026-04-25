@@ -1,0 +1,38 @@
+project: recommendation-system
+
+data_sources:
+  ratings_data:
+    type: file
+    path: ./data/processed/train.parquet
+
+entities:
+  - name: user_id
+    type: int32
+    description: User ID
+
+  - name: item_id
+    type: int32
+    description: Movie ID
+
+feature_views:
+  - name: user_features
+    entities:
+      - user_id
+    features:
+      - name: num_ratings
+        type: int32
+      - name: avg_rating
+        type: float32
+      - name: std_rating
+        type: float32
+
+  - name: item_features
+    entities:
+      - item_id
+    features:
+      - name: num_ratings
+        type: int32
+      - name: avg_rating
+        type: float32
+      - name: std_rating
+        type: float32

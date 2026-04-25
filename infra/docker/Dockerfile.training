@@ -1,0 +1,11 @@
+FROM recommendation-system-base:latest
+
+WORKDIR /app
+
+COPY scripts/training_job.py .
+COPY training ./training
+COPY data_pipeline ./data_pipeline
+COPY common ./common
+COPY feast_repo ./feast_repo
+
+CMD ["training_job.py"]

@@ -1,0 +1,9 @@
+FROM recommendation-system-base:latest
+
+WORKDIR /app
+
+COPY scripts/ingestion_job.py .
+COPY data_pipeline ./data_pipeline
+COPY common ./common
+
+CMD ["ingestion_job.py"]

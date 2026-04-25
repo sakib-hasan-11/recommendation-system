@@ -1,0 +1,11 @@
+FROM recommendation-system-base:latest
+
+WORKDIR /app
+
+COPY scripts/api_server.py .
+COPY serving ./serving
+COPY common ./common
+
+EXPOSE 8000
+
+CMD ["api_server.py"]

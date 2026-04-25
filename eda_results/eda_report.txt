@@ -1,0 +1,181 @@
+
+=== MOVIES DATASET ===
+Shape: (3883, 3)
+Columns: ['movieId', 'title', 'genres']
+Data types:
+movieId     int64
+title      object
+genres     object
+dtype: object
+
+Null values:
+movieId    0
+title      0
+genres     0
+dtype: int64
+
+Sample rows:
+   movieId                               title                        genres
+0        1                    Toy Story (1995)   Animation|Children's|Comedy
+1        2                      Jumanji (1995)  Adventure|Children's|Fantasy
+2        3             Grumpier Old Men (1995)                Comedy|Romance
+3        4            Waiting to Exhale (1995)                  Comedy|Drama
+4        5  Father of the Bride Part II (1995)                        Comedy
+5        6                         Heat (1995)         Action|Crime|Thriller
+6        7                      Sabrina (1995)                Comedy|Romance
+7        8                 Tom and Huck (1995)          Adventure|Children's
+8        9                 Sudden Death (1995)                        Action
+9       10                    GoldenEye (1995)     Action|Adventure|Thriller
+
+Movie ID range: 1 to 3952
+Unique genres: 301
+
+
+=== RATINGS DATASET ===
+Shape: (1000209, 4)
+Columns: ['userId', 'movieId', 'rating', 'timestamp']
+Data types:
+userId       int64
+movieId      int64
+rating       int64
+timestamp    int64
+dtype: object
+
+Null values:
+userId       0
+movieId      0
+rating       0
+timestamp    0
+dtype: int64
+
+Rating statistics:
+count    1.000209e+06
+mean     3.581564e+00
+std      1.117102e+00
+min      1.000000e+00
+25%      3.000000e+00
+50%      4.000000e+00
+75%      4.000000e+00
+max      5.000000e+00
+Name: rating, dtype: float64
+
+Unique users: 6040
+Unique movies: 3706
+User ratings range: min=20, max=2314, mean=165.60
+Movie ratings range: min=1, max=3428, mean=269.89
+
+Timestamp range: 2000-04-25 23:05:32 to 2003-02-28 17:49:50
+
+
+=== USERS DATASET ===
+Shape: (6040, 5)
+Columns: ['userId', 'gender', 'age', 'occupation', 'zip']
+Data types:
+userId         int64
+gender        object
+age            int64
+occupation     int64
+zip           object
+dtype: object
+
+Null values:
+userId        0
+gender        0
+age           0
+occupation    0
+zip           0
+dtype: int64
+
+Gender distribution:
+gender
+M    4331
+F    1709
+Name: count, dtype: int64
+
+Age distribution:
+age
+1      222
+18    1103
+25    2096
+35    1193
+45     550
+50     496
+56     380
+Name: count, dtype: int64
+
+Occupation distribution:
+occupation
+0     711
+1     528
+2     267
+3     173
+4     759
+5     112
+6     236
+7     679
+8      17
+9      92
+10    195
+11    129
+12    388
+13    142
+14    302
+15    144
+16    241
+17    502
+18     70
+19     72
+20    281
+Name: count, dtype: int64
+
+
+=== MERGED DATASET ANALYSIS ===
+Shape: (1000209, 10)
+
+Rating distribution by gender:
+         count   mean    std
+gender                      
+F       246440  3.620  1.111
+M       753769  3.569  1.119
+
+Rating distribution by occupation (top 10):
+             count      mean
+occupation                  
+4           131032  3.536793
+0           130499  3.537544
+7           105425  3.599772
+1            85351  3.576642
+17           72816  3.613574
+20           60397  3.497392
+12           57214  3.654001
+2            50068  3.573081
+14           49109  3.618481
+16           46021  3.596575
+
+Top 10 most rated movies:
+movieId
+2858    3428
+260     2991
+1196    2990
+1210    2883
+480     2672
+2028    2653
+589     2649
+2571    2590
+1270    2583
+593     2578
+Name: count, dtype: int64
+
+Top 10 highest rated movies (min 10 ratings):
+         count      mean
+movieId                 
+2905        69  4.608696
+2019       628  4.560510
+318       2227  4.554558
+858       2223  4.524966
+745        657  4.520548
+50        1783  4.517106
+527       2304  4.510417
+1148       882  4.507937
+922        470  4.491489
+1198      2514  4.477725

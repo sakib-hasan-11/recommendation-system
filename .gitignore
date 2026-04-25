@@ -5,7 +5,10 @@ __pycache__/
 
 # C extensions
 *.so
-
+DEPLOYMENT_READY_CHECKLIST.md
+MLFLOW_S3_SETUP.md
+SECURITY_GROUP_QUICK_REF.md
+SECURITY_GROUP_SETUP.md
 # Distribution / packaging
 .Python
 build/
@@ -25,7 +28,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-
+data_local/
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.

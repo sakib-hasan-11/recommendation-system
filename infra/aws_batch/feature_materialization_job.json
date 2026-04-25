@@ -1,0 +1,41 @@
+{
+  "jobDefinitionName": "recommendation-feature-materialization-job",
+  "type": "container",
+  "containerProperties": {
+    "image": "ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com/recommendation-system:training",
+    "vcpus": 4,
+    "memory": 16384,
+    "jobRoleArn": "arn:aws:iam::ACCOUNT_ID:role/recommendation-job-role",
+    "environment": [
+      {
+        "name": "AWS_REGION",
+        "value": "us-east-1"
+      },
+      {
+        "name": "LOG_LEVEL",
+        "value": "INFO"
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "/aws/batch/recommendation-materialization",
+        "awslogs-region": "us-east-1",
+        "awslogs-stream-prefix": "ecs"
+      }
+    }
+  },
+  "retryStrategy": {
+    "attempts": 3,
+    "evaluateOnExit": [
+      {
+        "onStatus": "Task*",
+        "onReason": "*OutOfMemory*",
+        "onExitCode": "1"
+      }
+    ]
+  },
+  "timeout": {
+    "attemptDurationSeconds": 7200
+  }
+}
